@@ -7,7 +7,6 @@ describe('NoteManager', function() {
   describe('#addNote', function() {
     it('adds a note to the notes list', function() {
       noteManager.addNote('This is the note message');
-
       expect(noteManager.getNotes().length).toEqual(1);
     })
   })

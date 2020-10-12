@@ -1,6 +1,6 @@
 class NoteManager {
   constructor() {
-    this.notes = []
+    this.notes = [];
   }
 
   addNote(message) {
@@ -9,6 +9,6 @@ class NoteManager {
   }
 
   getNotes() {
-    return this.notes;
+    console.log(this.notes);
   }
 }

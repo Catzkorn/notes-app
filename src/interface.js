@@ -1,13 +1,15 @@
 addNoteOnClick();
 
+var notemanager = new NoteManager();
+
 function addNoteOnClick() {
   document
     .getElementById("new-note")
     .addEventListener("click", function(clickEvent) {
       clickEvent.preventDefault();
-      console.log("hi!");
+      var message = document.getElementById('message').value;
+      notemanager.addNote(message);
+      notemanager.getNotes();
     });
-
-
-
 };
+
