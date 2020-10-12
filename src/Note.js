@@ -1,17 +1,17 @@
 class Note {
-  constructor(text, time = new Date()) {
-    this.text = text;
+  constructor(message, time = new Date()) {
+    this.message = message;
     this.time = time;
   };
 
 
 
-  noteText() {
-    console.log(this.text);
-    return this.text;
+  getMessage() {
+    console.log(this.message);
+    return this.message;
   };
 
-  noteTime() {
+  getTime() {
     console.log(this.time);
     return this.time;
   };
