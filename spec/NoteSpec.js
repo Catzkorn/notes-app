@@ -15,9 +15,4 @@ describe('Note', function() {
   it('returns the time the note was created', function() {
     expect(note.getTime()).toEqual(time);
   });
-
-
-
-
-
 });

@@ -4,8 +4,6 @@ class Note {
     this.time = time;
   };
 
-
-
   getMessage() {
     console.log(this.message);
     return this.message;
@@ -15,7 +13,4 @@ class Note {
     console.log(this.time);
     return this.time;
   };
-
-
-
 }
