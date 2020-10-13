@@ -1,8 +1,6 @@
 addNoteOnClick();
 
-let noteManager = new NoteManager();
-
-viewNotes();
+var noteManager = new NoteManager();
 
 function addNoteOnClick() {
   let submitButton = document.getElementById("submit-button");
@@ -21,13 +19,21 @@ function displayNotes() {
   let html = ""
   for (let i = 0; i < notes.length; i++) {
     let note = notes[i];
-    html += formatNote(note);
+    html += formatNote(note, i);
   }
   notesList.innerHTML = (html);
 }
 
-function formatNote(note) {
-  return `<div id='note-${i}'>` + note.message + "<br>" + note.time + "</div><br>"
+function formatNote(note, index) {
+  return `<div id='note-${index}'>` + abbreviateMessage(note.message) + "<br>" + note.time + "</div><br>"
+}
+
+function abbreviateMessage(message) {
+  if (message.length > 20) {
+    return message.slice(0, 20) + "..."
+  } else {
+    return message
+  }
 }
 
 
