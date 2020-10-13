@@ -1,14 +1,22 @@
 addNoteOnClick();
 
-var notemanager = new NoteManager();
+var noteManager = new NoteManager();
+
+viewNotes();
 
 function addNoteOnClick() {
   var element = document.getElementById("submit-button");
   element.addEventListener("click", function(clickEvent) {
     clickEvent.preventDefault();
     var message = document.getElementById('message').value;
-    notemanager.addNote(message);
-    notemanager.getNotes();
+    noteManager.addNote(message);
+    viewNotes();
   });
 };
+
+function viewNotes() {
+  var notesList = document.getElementById("note-list");
+  notesList.innerHTML = (noteManager.getNotes(noteManager)[0].message);
+}
+
 

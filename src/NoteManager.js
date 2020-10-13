@@ -9,6 +9,6 @@ class NoteManager {
   }
 
   getNotes() {
-    console.log(this.notes);
+    return this.notes;
   }
 }
