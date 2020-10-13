@@ -1,9 +1,9 @@
 
 function checkEqual(actual, expected) {
   if (actual === expected) {
-    console.log("pass")
+    return "pass"
   } else {
-    console.log(`fail, expected ${expected}, got ${actual}`)
+    return `fail, expected ${expected}, got ${actual}`
   }
 }
 
@@ -21,6 +21,10 @@ function checkBeFalse(actual) {
   } else {
     return `fail, expected false, got ${actual}`
   }
+}
+
+function describe(description) {
+  return description
 }
 
 
