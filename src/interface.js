@@ -2,9 +2,15 @@ addNoteOnClick();
 off();
 var noteManager = new NoteManager();
 
+function addClickListener(elementId, clickFunction) {
+  let button = document.getElementById(elementId);
+  button.addEventListener("click", function(clickEvent) {
+    clickFunction(clickEvent)
+  })
+}
+
 function addNoteOnClick() {
-  let submitButton = document.getElementById("submit-button");
-  submitButton.addEventListener("click", function(clickEvent) {
+  addClickListener("submit-button", function(clickEvent) {
     clickEvent.preventDefault();
     let message = document.getElementById('message');
     noteManager.addNote(message.value);
@@ -43,14 +49,13 @@ function generateViewButton(index) {
 
 function viewFullNoteOnClick(notes) {
   for (let i = 0; i < notes.length; i++ ) {
-    let viewButton = document.getElementById(`button-${i}`);
-    viewButton.addEventListener("click", function() {
+    addClickListener(`button-${i}`, function() {
       let fullNote = document.getElementById('fullNote');
       let note = notes[i];
       fullNote.innerHTML = generateFullNote(note)
       hideOverlayOnCloseClick();
       on();
-    });  
+    }); 
   };
 };
 
@@ -59,8 +64,7 @@ function generateFullNote(note) {
 }
 
 function hideOverlayOnCloseClick() {
-  let closeButton = document.getElementById('close');
-  closeButton.addEventListener("click", function() {
+  addClickListener("close", function() {
     off();
   })
 }
