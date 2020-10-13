@@ -1,29 +1,33 @@
 addNoteOnClick();
 
-var noteManager = new NoteManager();
+let noteManager = new NoteManager();
 
 viewNotes();
 
 function addNoteOnClick() {
-  var element = document.getElementById("submit-button");
-  element.addEventListener("click", function(clickEvent) {
+  let submitButton = document.getElementById("submit-button");
+  submitButton.addEventListener("click", function(clickEvent) {
     clickEvent.preventDefault();
-    var message = document.getElementById('message');
+    let message = document.getElementById('message');
     noteManager.addNote(message.value);
-    viewNotes();
+    displayNotes();
     document.getElementById("new-note").reset();
   });
 };
 
-function viewNotes() {
-  var notesList = document.getElementById("note-list");
+function displayNotes() {
+  let notesList = document.getElementById("note-list");
   let notes = noteManager.getNotes();
   let html = ""
-  notes.forEach(function(note) {
-    html += note.message + "<br>" + note.time + "<br>"
-  })
+  for (let i = 0; i < notes.length; i++) {
+    let note = notes[i];
+    html += formatNote(note);
+  }
   notesList.innerHTML = (html);
+}
 
+function formatNote(note) {
+  return `<div id='note-${i}'>` + note.message + "<br>" + note.time + "</div><br>"
 }
 
 
