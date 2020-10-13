@@ -8,15 +8,22 @@ function addNoteOnClick() {
   var element = document.getElementById("submit-button");
   element.addEventListener("click", function(clickEvent) {
     clickEvent.preventDefault();
-    var message = document.getElementById('message').value;
-    noteManager.addNote(message);
+    var message = document.getElementById('message');
+    noteManager.addNote(message.value);
     viewNotes();
+    document.getElementById("new-note").reset();
   });
 };
 
 function viewNotes() {
   var notesList = document.getElementById("note-list");
-  notesList.innerHTML = (noteManager.getNotes(noteManager)[0].message);
+  let notes = noteManager.getNotes();
+  let html = ""
+  notes.forEach(function(note) {
+    html += note.message + "<br>" + note.time + "<br>"
+  })
+  notesList.innerHTML = (html);
+
 }
 
 
