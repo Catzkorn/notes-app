@@ -7,7 +7,37 @@
 </head>
 
 <body>
-
+  <style>
+  #fullNote {
+    position: absolute;
+    width: 70%; /* Full width (cover the whole page) */
+    height: 70%; /* Full height (cover the whole page) */
+    background-color: white; /* Black background with opacity */
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: red;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+  }
+  #overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}
+  </style>
+  
+  <div id="overlay">
+    <div id="fullNote">Overlay Text</div>
+  </div>
   <section class="note-creation">
     <form id="new-note">
       <input id="message" type="text" placeholder="What do you want to remember?"></input>
@@ -23,6 +53,8 @@
   <script src="src/Note.js"></script>
   <script src="src/NoteManager.js"></script>
   <script src="src/interface.js"></script>
+  
+
 </body>
 
 
