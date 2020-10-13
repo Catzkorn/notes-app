@@ -25,7 +25,7 @@ function displayNotes() {
 }
 
 function formatNote(note, index) {
-  return `<div id='note-${index}'>` + abbreviateMessage(note.message) + "<br>" + note.time + "</div><br>"
+  return `<div id='note-${index}'>` + abbreviateMessage(note.message) + " " + viewButton(index) + "<br>" + note.time + "</div><br>" 
 }
 
 function abbreviateMessage(message) {
@@ -34,6 +34,10 @@ function abbreviateMessage(message) {
   } else {
     return message
   }
+}
+
+function viewButton(index) {
+  return `<button type='button' id='button-${index}'>View</button>`
 }
 
 
