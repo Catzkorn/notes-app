@@ -1,7 +1,7 @@
-testRunner()
+// testRunner()
 
-function testRunner() {
-  testResult = []
-  testResult.push(test())
-}
+// function testRunner() {
+//   testResult = []
+//   testResult.push(test())
+// }
 

@@ -1,5 +1,8 @@
 
 function checkEqual(actual, expected) {
+  var testDisplay = document.getElementById("tests");
+  console.log(testDisplay);
+
   if (actual === expected) {
     return "pass";
   } else {
