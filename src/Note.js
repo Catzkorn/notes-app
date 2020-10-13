@@ -5,12 +5,10 @@ class Note {
   };
 
   getMessage() {
-    console.log(this.message);
     return this.message;
   };
 
   getTime() {
-    console.log(this.time);
     return this.time;
   };
 }
