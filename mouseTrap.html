@@ -2,25 +2,28 @@
 <html>
 
 <head>
-
-
-
+  <link rel='stylesheet' href='./public/trap.css'>
+  <link rel="icon" type="image/png" href="public/cheese.png">
 </head>
 
 <body>
-  <span id="tests">" this is a test "</span>
+  <h1>Mouse Trap</h1>
+  <h2>Build a test</h2> 
+  <h2>Set the bait</h2>
+  <h2>Check for success</h2>
+  <text id="tests" style="white-space:pre-wrap">" this is a test "</text>
 </body>
 
-<script src="spec/specInterface.js"></script>
+<script src="trap/trapInterface.js"></script>
 
 <!-- program files -->
-<script src="spec/testing.js"></script>
+<script src="trap/trapLibrary.js"></script>
 <script src="src/Note.js"></script>
 <script src="src/NoteManager.js"></script>
 
 <!-- testing files -->
-<script src="spec/NoteSpec.js"></script>
-<script src="spec/NoteManagerSpec.js"></script>
+<script src="trap/NoteTrap.js"></script>
+<script src="trap/NoteManagerTrap.js"></script>
 
 
 </html>
