@@ -17,13 +17,12 @@ function displayNotes() {
   let notesList = document.getElementById("note-list");
   let notes = noteManager.getNotes();
   let html = ""
-  let notesCount = notes.length
-  for (let i = 0; i < notesCount; i++) {
+  for (let i = 0; i < notes.length; i++) {
     let note = notes[i];
     html += formatNote(note, i);
   }
   notesList.innerHTML = (html);
-  viewFullNoteOnClick(notesCount);
+  viewFullNoteOnClick(notes);
 }
 
 function formatNote(note, index) {
@@ -42,14 +41,29 @@ function generateViewButton(index) {
   return `<button type='button' id='button-${index}'>View</button>`
 }
 
-function viewFullNoteOnClick(notesCount) {
-  for (let i = 0; i < notesCount; i++ ) {
+function viewFullNoteOnClick(notes) {
+  for (let i = 0; i < notes.length; i++ ) {
     let viewButton = document.getElementById(`button-${i}`);
-    viewButton.addEventListener("click", function(clickEvent) {
-      on()
+    viewButton.addEventListener("click", function() {
+      let fullNote = document.getElementById('fullNote');
+      let note = notes[i];
+      fullNote.innerHTML = generateFullNote(note)
+      hideOverlayOnCloseClick();
+      on();
     });  
   };
 };
+
+function generateFullNote(note) {
+  return note.time + '<br>' + note.message  + "<br> <button type='button' id='close'>Close</button>"
+}
+
+function hideOverlayOnCloseClick() {
+  let closeButton = document.getElementById('close');
+  closeButton.addEventListener("click", function() {
+    off();
+  })
+}
 
 function on() {
   document.getElementById("overlay").style.display = "block";
