@@ -1,4 +1,5 @@
 #fullNote {
+    font-family: 'Balsamiq Sans', cursive;
     position: absolute;
     width: 70%; /* Full width (cover the whole page) */
     height: 70%; /* Full height (cover the whole page) */
@@ -24,13 +25,27 @@
     cursor: pointer; /* Add a pointer on hover */
 }
 
+#note-list {
+    font-family: 'Balsamiq Sans', cursive;
+}
+
 #message {
+    font-family: 'Balsamiq Sans', cursive;
     text-align: center;
     font-size: 40px;
     padding: 20px 20px;
     height: 200px;
     width: 70%;
 }
+
+#submit-button {
+    font-family: 'Balsamiq Sans', cursive;
+    padding: 10px 10px 10px 10px;
+    font-size: 20px;
+    height: 50px;
+    width : 70px;
+}
+
 
 div.form {
     display: block;
