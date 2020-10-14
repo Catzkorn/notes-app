@@ -1,0 +1,11 @@
+.pass {
+    color: seagreen;
+}
+
+.fail {
+    color: rgb(216, 29, 29);
+}
+
+#test-summary {
+    font-size: 200%
+}
