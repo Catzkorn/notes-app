@@ -1,3 +1,5 @@
+let testWindow;
+
 function bait(cheese) {
   displayTests(cheese)
 }
@@ -24,4 +26,25 @@ function checkIfFalse(actual) {
   } else {
     displayTests(`Fail - you expected false but instead got ${actual}`);
   }
+}
+
+function navigateTo(path) {
+  testWindow = window.open(path, 'test-window')
+}
+
+function navigateAndPopulate(path, elementId, value) {
+  testWindow = window.open(path, 'test-window')
+  testWindow.onload = function() {
+    populateForm(elementId, value)
+  }
+}
+
+function populateForm(elementId, value) {
+  let field = testWindow.document.getElementById(elementId);
+  console.log(field)
+  field.value = field.value + value;
+}
+
+function closeWindow() {
+  testWindow.close();
 }
