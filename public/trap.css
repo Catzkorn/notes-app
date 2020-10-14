@@ -3,5 +3,9 @@
 }
 
 .fail {
-    color: maroon;
+    color: rgb(216, 29, 29);
+}
+
+#test-summary {
+    font-size: 200%
 }
