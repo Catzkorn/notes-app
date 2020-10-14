@@ -30,13 +30,15 @@ function checkIfFalse(actual) {
 
 function navigateTo(path) {
   testWindow = window.open(path, 'test-window')
+  testWindow.onload = function() {
+    executeTest();
+  }
 }
 
 function navigateAndPopulate(path, elementId, value, buttonId) {
   testWindow = window.open(path, 'test-window')
   testWindow.onload = function() {
-    populateForm(elementId, value)
-    clickButton(buttonId)
+    testExecution()
   }
 }
 
