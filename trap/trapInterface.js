@@ -1,6 +1,6 @@
 var cheeseString = ""
 function displayTestDesc(bait) {
-  cheeseString += bait;
+  cheeseString += bait + "<br>";
 }
 
 function displayTests(cheese) {
