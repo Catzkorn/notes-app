@@ -30,20 +30,20 @@ function checkIfFalse(actual) {
 
 function checkPageContains(expected) {
   let actual = testWindow.document.body.textContent
-  console.log(actual);
+  // TODO: remove white space from actual before printing
   if (actual.includes(expected)) {
     displayTests("Success");
   } else {
     displayTests(`Fail - you expected ${expected} but instead got ${actual}`);
   }
 }
-
-function navigateTo(path) {
-  testWindow = window.open(path, 'test-window')
-  testWindow.onload = function() {
-    executeTest();
-  }
-}
+//
+// function navigateTo(path) {
+//   testWindow = window.open(path, 'test-window')
+//   testWindow.onload = function() {
+//     executeTest();
+//   }
+// }
 
 function populateForm(elementId, value) {
   let field = testWindow.document.getElementById(elementId);
@@ -55,8 +55,8 @@ function closeWindow() {
 }
 
 function clickButton(elementId) {
-  button = testWindow.document.getElementById(elementId)
-  button.click()
+  let button = testWindow.document.getElementById(elementId)
+  button.click();
 }
 
 function runFeatureTest(testDesc, path, testSteps) {
