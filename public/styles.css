@@ -1,16 +1,37 @@
 #fullNote {
     font-family: 'Balsamiq Sans', cursive;
     position: absolute;
+    padding: 30px 30px 30px 30px;
     width: 70%; /* Full width (cover the whole page) */
     height: 70%; /* Full height (cover the whole page) */
-    background-color: white; /* Black background with opacity */
+    background-color: white; 
     top: 50%;
     left: 50%;
     font-size: 50px;
-    color: red;
+    color: darkslategray;
     transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
 }
+
+#full-note-time{
+    font-size: 20px;
+
+}
+
+#close {
+    font-family: 'Balsamiq Sans', cursive;
+    padding: 10px 10px 10px 10px;
+    font-size: 20px;
+    height: 50px;
+    width : 80px;
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+    width: auto;
+    padding: 5px 10px;
+    white-space: nowrap;
+}
+
 #overlay {
     position: fixed; /* Sit on top of the page content */
     display: none; /* Hidden by default */
@@ -20,9 +41,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    background-color: rgba(0, 0, 0, 0.712); /* Black background with opacity */
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
     cursor: pointer; /* Add a pointer on hover */
+    backdrop-filter: blur(3px);
 }
 
 #note-list {
@@ -36,8 +58,10 @@
     text-align: center;
     font-size: 40px;
     padding: 20px 20px;
-    height: 200px;
+    height: 100px;
     width: 70%;
+    border-color: white;
+    outline: none;
 }
 
 #submit-button {
@@ -55,6 +79,7 @@ div.form {
 }
 
 .view-button {
-    color: blueviolet;
+    color: darkslategray;
+    font-family: 'Balsamiq Sans', cursive;
 }
 

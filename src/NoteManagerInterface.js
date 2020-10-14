@@ -60,7 +60,7 @@ function viewFullNoteOnClick(notes) {
 };
 
 function generateFullNote(note) {
-  return note.time + '<br>' + note.message  + "<br> <button type='button' id='close'>Close</button>"
+  return `<div id='full-note-time'>${note.time}</div>` + '<br>' + note.message  + "<br> <div id='close'><button type='button' id='close'>Close</button></div>"
 }
 
 function hideOverlayOnCloseClick() {
