@@ -32,7 +32,7 @@ function displayNotes() {
 }
 
 function formatNote(note, index) {
-  return `<div id='note-${index}'>` + note.time + '<br>' + abbreviateMessage(note.message) + " " + generateViewButton(index) + "</div><br>" 
+  return `<div id='note-${index}'>` + note.time + '<br>' + abbreviateMessage(note.message) + "<br>" + generateViewButton(index) + "</div><br>" 
 }
 
 function abbreviateMessage(message) {
@@ -44,7 +44,7 @@ function abbreviateMessage(message) {
 }
 
 function generateViewButton(index) {
-  return `<button type='button' id='button-${index}'>View</button>`
+  return `<button type='button' class="view-button" id='button-${index}'>View</button>`
 }
 
 function viewFullNoteOnClick(notes) {

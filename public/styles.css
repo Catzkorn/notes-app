@@ -27,6 +27,8 @@
 
 #note-list {
     font-family: 'Balsamiq Sans', cursive;
+    text-align: center;
+    margin: auto;
 }
 
 #message {
@@ -50,6 +52,9 @@
 div.form {
     display: block;
     text-align: center;
+}
 
+.view-button {
+    color: blueviolet;
 }
 
