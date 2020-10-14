@@ -28,6 +28,16 @@ function checkIfFalse(actual) {
   }
 }
 
+function checkPageContains(expected) {
+  let actual = testWindow.document.body.textContent
+  console.log(actual);
+  if (actual.includes(expected)) {
+    displayTests("Success");
+  } else {
+    displayTests(`Fail - you expected ${expected} but instead got ${actual}`);
+  }
+}
+
 function navigateTo(path) {
   testWindow = window.open(path, 'test-window')
   testWindow.onload = function() {
@@ -35,16 +45,9 @@ function navigateTo(path) {
   }
 }
 
-function navigateAndPopulate(path, elementId, value, buttonId) {
-  testWindow = window.open(path, 'test-window')
-  testWindow.onload = function() {
-    testExecution()
-  }
-}
-
 function populateForm(elementId, value) {
   let field = testWindow.document.getElementById(elementId);
-  field.value = field.value + value;
+  field.value = value;
 }
 
 function closeWindow() {
