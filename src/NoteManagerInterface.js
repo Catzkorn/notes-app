@@ -23,7 +23,7 @@ function displayNotes() {
   let notesList = document.getElementById("note-list");
   let notes = noteManager.getNotes();
   let html = ""
-  for (let i = 0; i < notes.length; i++) {
+  for (let i = (notes.length - 1); i >= 0; i--) {
     let note = notes[i];
     html += formatNote(note, i);
   }
