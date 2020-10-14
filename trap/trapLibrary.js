@@ -58,3 +58,11 @@ function clickButton(elementId) {
   button = testWindow.document.getElementById(elementId)
   button.click()
 }
+
+function runFeatureTest(testDesc, path, testSteps) {
+  bait(testDesc)
+  testWindow = window.open(path, 'test-window')
+  testWindow.onload = function() {
+    testSteps()
+  }
+}
