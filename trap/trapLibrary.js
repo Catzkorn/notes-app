@@ -32,19 +32,24 @@ function navigateTo(path) {
   testWindow = window.open(path, 'test-window')
 }
 
-function navigateAndPopulate(path, elementId, value) {
+function navigateAndPopulate(path, elementId, value, buttonId) {
   testWindow = window.open(path, 'test-window')
   testWindow.onload = function() {
     populateForm(elementId, value)
+    clickButton(buttonId)
   }
 }
 
 function populateForm(elementId, value) {
   let field = testWindow.document.getElementById(elementId);
-  console.log(field)
   field.value = field.value + value;
 }
 
 function closeWindow() {
   testWindow.close();
+}
+
+function clickButton(elementId) {
+  button = testWindow.document.getElementById(elementId)
+  button.click()
 }
