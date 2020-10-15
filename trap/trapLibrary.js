@@ -31,6 +31,7 @@ function checkIfFalse(actual) {
 function checkPageContains(testWindow, expected) {
   let actual = testWindow.document.body.textContent
   // TODO: remove white space from actual before printing
+  // display test result 
   if (actual.includes(expected)) {
     displayTests("Success");
   } else {
@@ -65,4 +66,5 @@ function runFeatureTest(testDesc, path, testSteps) {
   testWindow.onload = function() {
     testSteps(testWindow)
   }
+  // combines both the testDesc and the testResult and prints them as a formatted block (might need 4 args: testDesc, result, expected, actual)
 }
