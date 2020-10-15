@@ -5,8 +5,8 @@ var noteManager = new NoteManager();
 function addClickListener(elementId, clickFunction) {
   let button = document.getElementById(elementId);
   button.addEventListener("click", function(clickEvent) {
-    clickFunction(clickEvent)
-  })
+    clickFunction(clickEvent);
+  });
 }
 
 function addNoteOnClick() {
@@ -22,7 +22,7 @@ function addNoteOnClick() {
 function displayNotes() {
   let notesList = document.getElementById("note-list");
   let notes = noteManager.getNotes();
-  let html = ""
+  let html = "";
   for (let i = (notes.length - 1); i >= 0; i--) {
     let note = notes[i];
     html += formatNote(note, i);
@@ -32,41 +32,41 @@ function displayNotes() {
 }
 
 function formatNote(note, index) {
-  return `<div id='note-${index}'>` + note.time + '<br>' + abbreviateMessage(note.message) + "<br>" + generateViewButton(index) + "</div><br>" 
+  return `<div id='note-${index}'>` + note.time + '<br>' + abbreviateMessage(note.message) + "<br>" + generateViewButton(index) + "</div><br>";
 }
 
 function abbreviateMessage(message) {
   if (message.length > 20) {
-    return message.slice(0, 20) + "..."
+    return message.slice(0, 20) + "...";
   } else {
-    return message
+    return message;
   }
 }
 
 function generateViewButton(index) {
-  return `<button type='button' class="view-button" id='button-${index}'>View</button>`
+  return `<button type='button' class="view-button" id='button-${index}'>View</button>`;
 }
 
 function viewFullNoteOnClick(notes) {
-  for (let i = 0; i < notes.length; i++ ) {
+  for (let i = 0; i < notes.length; i++) {
     addClickListener(`button-${i}`, function() {
       let fullNote = document.getElementById('fullNote');
       let note = notes[i];
-      fullNote.innerHTML = generateFullNote(note)
+      fullNote.innerHTML = generateFullNote(note);
       hideOverlayOnCloseClick();
       on();
-    }); 
+    });
   };
 };
 
 function generateFullNote(note) {
-  return `<div id='full-note-time'>${note.time}</div>` + '<br>' + note.message  + "<br> <div id='close'><button type='button' id='close'>Close</button></div>"
+  return `<div id='full-note-time'>${note.time}</div>` + '<br>' + note.message;
 }
 
 function hideOverlayOnCloseClick() {
   addClickListener("close", function() {
     off();
-  })
+  });
 }
 
 function on() {
