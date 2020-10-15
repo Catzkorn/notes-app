@@ -1,7 +1,7 @@
 // let testWindow;
 
 function bait(cheese) {
-  displayTests(cheese)
+  displayTestDesc(cheese)
 }
 
 function checkEqual(actual, expected) {
