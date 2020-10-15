@@ -1,20 +1,18 @@
-// TO RUN TESTS must use format:
+// let it = require("./trap").it
+// let expect = require("./trap").expect
 
-
-let testManager = new TestManager
-
-testManager.addTest('our test', function() {
-  return this.expect(2).toEqual(2)
+it('our test', function() {
+  expect(2).toEqual(2)
 })
 
-testManager.addTest('2 + 2 is 4', function() {
+it('2 + 2 is 4', function() {
   let result = 2 + 2
-  return this.expect(result).toEqual(4)
+  expect(result).toEqual(4)
 })
 
-testManager.addTest('failing test', function() {
+it('failing test', function() {
   let result = 2 + 2
-  return this.expect(result).toEqual(5)
+  expect(result).toEqual(5)
 })
 
-testManager.runTests()
+// testManager.runTests()

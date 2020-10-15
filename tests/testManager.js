@@ -1,11 +1,11 @@
 class TestManager {
+
   constructor() {
     this.tests = []
     this.resultHTML = ""
   }
 
-  addTest(description, steps) {
-    var test = new Test(description, steps)
+  addTest(test) {
     this.tests.push(test)
   }
 
@@ -13,9 +13,20 @@ class TestManager {
     this.resultHTML = ""
     for (let i = 0; i < this.tests.length; i++) {
       let test = this.tests[i]
-      let result = test.testSteps()
+      let steps = test.testSteps
+      console.log(steps())
+      let result = eval(steps())
+      console.dir(result)
       this.outputTestResult(test, result)
     }
+  }
+
+  runTest(test) {
+    let steps = test.testSteps
+    console.dir(steps)
+    let result = eval(steps())
+    console.dir(result)
+    this.outputTestResult(test, result)
   }
 
   outputTestResult(test, result) {
