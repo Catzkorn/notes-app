@@ -1,6 +1,6 @@
 class Test {
   constructor(description, steps) {
-    this.testDescription = description
+    this.description = description
     this.testSteps = steps
     this.testWindow = undefined
   }
@@ -9,12 +9,12 @@ class Test {
     return {
       toEqual: function(expected) {
         if (actual === expected) {
-          return {result: "pass"}
+          return {status: "pass"}
         } else {
-          return {result: "fail", expected: expected, actual: actual}
+          return {status: "fail", expected: expected, actual: actual}
         }
       }
-    }  
+    }
   }
 }
   

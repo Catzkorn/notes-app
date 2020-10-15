@@ -1,6 +1,7 @@
 class TestManager {
   constructor() {
     this.tests = []
+    this.resultHTML = ""
   }
 
   addTest(description, steps) {
@@ -9,18 +10,22 @@ class TestManager {
   }
 
   runTests() {
-    this.tests.forEach(function(test) {
-      var result1 = test.testSteps()
-      console.log(test.result)
-      // displayResult(test, result)
-    })
+    for (let i = 0; i < this.tests.length; i++) {
+      let test = this.tests[i]
+      let result = test.testSteps()
+      this.outputTestResult(test, result)
+    }
+    this.resultHTML = ""
+  }
+
+  outputTestResult(test, result) {
+    if (result.status === "pass") {
+      this.resultHTML += `<div class='${result.status}'>${test.description}<br>Pass</div><br>`
+    } else {
+      this.resultHTML += `<div class='${result.status}'>${test.description}<br>Fail<br>Expected ${result.expected} but instead got ${result.actual}</div><br>`
+    }
+    let testsElement = document.getElementById('tests')
+    let html = "<div id='test-results'>" + this.resultHTML + "</div>"
+    testsElement.innerHTML = html;
   }
 }
-
-testManager = new TestManager
-
-testManager.addTest("double 2 to equal 4", function() {
-  this.expect(2).toEqual(2)
-})
-
-testManager.runTests()
