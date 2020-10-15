@@ -83,7 +83,7 @@ html{
 }
 
 #gap{
-height: 1.5cm;
+height: 2.5cm;
 }
 
 .view-button{
@@ -91,7 +91,8 @@ height: 1.5cm;
     border-radius: 100%;
     padding-top: 5px;
     padding-bottom: 5px;
-    background-color:rgba(220, 220, 220, 0.468);;
+    background-color:rgba(220, 220, 220, 0.468);
+    font-size: 25px;
 }
 
 
