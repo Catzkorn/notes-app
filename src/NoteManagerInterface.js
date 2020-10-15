@@ -47,7 +47,13 @@ function addGap() {
   return '<div id="gap"></div>';
 }
 
+
 function generateViewButton(index) {
+  // var snd = new Audio("file.wav");
+  // snd.play();
+  // snd.currentTime=0;
+ 
+
   return `<button type='button' class="view-button" id='button-${index}'>🧶</button>`;
 }
 

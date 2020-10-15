@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  
   <meta charset="UTF-8">
   <title>Scratch Pad</title>
   <link rel="stylesheet" href="public/styles.css">
@@ -23,7 +24,10 @@
         <textarea id="message" type="text" columns="20"
           placeholder="Don't stress meeoowwwwt!!!&#10;&#128008;"></textarea>
 
-        <div><input type="submit" id="submit-button" value=🐾></input></div>
+        <div><input type="submit" id="submit-button" onclick="document.getElementById('cat').play();" value=🐾></input>
+          <audio id="cat" src="public/cat.mp3" preload="auto"></audio>
+        
+        </div>
       </form>
     </div>
   </section>
