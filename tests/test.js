@@ -13,6 +13,20 @@ class Test {
         } else {
           return {status: "fail", expected: expected, actual: actual}
         }
+      },
+      toBeTrue: function() {
+        if (actual === true) {
+          return {status: "pass"}
+        } else {
+          return {status: "fail", expected: true, actual: actual}
+        }
+      },
+      toBeFalse: function() {
+        if (actual === false) {
+          return {status: "pass"}
+        } else {
+          return {status: "fail", expected: false, actual: actual}
+        }
       }
     }
   }

@@ -1,6 +1,5 @@
 // TO RUN TESTS must use format:
 
-
 let testManager = new TestManager
 
 testManager.addTest('our test', function() {
@@ -15,6 +14,14 @@ testManager.addTest('2 + 2 is 4', function() {
 testManager.addTest('failing test', function() {
   let result = 2 + 2
   return this.expect(result).toEqual(5)
+})
+
+testManager.addTest('truth check', function() {
+  return this.expect(4+4==8).toBeTrue()
+})
+
+testManager.addTest('false check', function() {
+  return this.expect(4+4==8).toBeFalse()
 })
 
 testManager.runTests()
