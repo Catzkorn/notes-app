@@ -38,9 +38,8 @@
  
 
  #close {
-   
-    position: absolute;
-    font-size: 5cm;
+    /* position: absolute;
+    font-size: 3cm;
     top: 3%;
     right: 5%;
     padding: 30px 30px 30px 30px;
@@ -48,9 +47,21 @@
     width: auto; 
     padding: 5px 10px;
     white-space: nowrap;
-    background: transparent;
-    border: transparent;
-    
+    background: grey;
+    border: 1px solid #AEAEAE;
+    border-radius: 5px;
+    color: #fff; */
+    position: fixed;
+    top: 7.5%;
+    right: 7.5%;
+    padding: 4px 10px 10px 10px;
+    font-size: 30px; /*size of the cheese*/
+    height: 50px;
+    width : auto;
+    vertical-align: middle;
+    border-radius: 100%;
+    align-content: center;
+  
    
 } 
 
