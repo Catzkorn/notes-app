@@ -10,12 +10,12 @@ class TestManager {
   }
 
   runTests() {
+    this.resultHTML = ""
     for (let i = 0; i < this.tests.length; i++) {
       let test = this.tests[i]
       let result = test.testSteps()
       this.outputTestResult(test, result)
     }
-    this.resultHTML = ""
   }
 
   outputTestResult(test, result) {
