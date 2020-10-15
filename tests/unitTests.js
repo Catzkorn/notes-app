@@ -1,6 +1,3 @@
-// let it = require("./trap").it
-// let expect = require("./trap").expect
-
 it('our test', function() {
   expect(2).toEqual(2)
 })
@@ -14,5 +11,3 @@ it('failing test', function() {
   let result = 2 + 2
   expect(result).toEqual(5)
 })
-
-// testManager.runTests()
