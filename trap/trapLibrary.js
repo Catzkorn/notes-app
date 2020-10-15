@@ -1,4 +1,4 @@
-let testWindow;
+// let testWindow;
 
 function bait(cheese) {
   displayTests(cheese)
@@ -28,7 +28,7 @@ function checkIfFalse(actual) {
   }
 }
 
-function checkPageContains(expected) {
+function checkPageContains(testWindow, expected) {
   let actual = testWindow.document.body.textContent
   // TODO: remove white space from actual before printing
   if (actual.includes(expected)) {
@@ -45,24 +45,24 @@ function checkPageContains(expected) {
 //   }
 // }
 
-function populateForm(elementId, value) {
+function populateForm(testWindow, elementId, value) {
   let field = testWindow.document.getElementById(elementId);
   field.value = value;
 }
 
-function closeWindow() {
+function closeWindow(testWindow) {
   testWindow.close();
 }
 
-function clickButton(elementId) {
+function clickButton(testWindow, elementId) {
   let button = testWindow.document.getElementById(elementId)
   button.click();
 }
 
 function runFeatureTest(testDesc, path, testSteps) {
   bait(testDesc)
-  testWindow = window.open(path, 'test-window')
+  let testWindow = window.open(path)
   testWindow.onload = function() {
-    testSteps()
+    testSteps(testWindow)
   }
 }

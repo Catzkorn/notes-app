@@ -1,25 +1,13 @@
-runFeatureTest("Adds a note", './index.html', function() {
-  populateForm("message", "Our test message");
-  clickButton('submit-button');
-  checkPageContains("Our test message");
-  closeWindow();
-  runSecond();
+runFeatureTest("Adds a note", './index.html', function(testWindow) {
+  populateForm(testWindow, "message", "Our test message");
+  clickButton(testWindow, 'submit-button');
+  checkPageContains(testWindow, "Our test message");
+  closeWindow(testWindow);
 })
 
-// runFeatureTest("Shows abbrv note version", './index.html', function() {
-//   populateForm("message", "Our test message is a very long message that is longer than 20 characters");
-//   clickButton('submit-button');
-//   checkPageContains("Our test message is ...");
-//   closeWindow();
-// })
-
-function runSecond() {
-  runFeatureTest("Shows abbrv note version", './index.html', function() {
-    populateForm("message", "Our test message is a very long message that is longer than 20 characters");
-    clickButton('submit-button');
-    checkPageContains("Our test message is a very long message");
-    closeWindow();
-  })
-}
-
-
+runFeatureTest("Shows abbrv note version", './index.html', function(testWindow) {
+  populateForm(testWindow, "message", "Our test message is a very long message that is longer than 20 characters");
+  clickButton(testWindow, 'submit-button');
+  checkPageContains(testWindow, "Our test message is ...");
+  closeWindow(testWindow);
+})
