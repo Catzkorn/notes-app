@@ -1,0 +1,91 @@
+// let Test = require("./test").Test
+
+let currentTest = {}
+let resultHTML = ""
+
+function it(description, steps) {
+  let test = new Test(description, steps)
+  runTest(test)
+}
+// function webIt(description, url, steps) {
+//   let testWindow = window.open(path, 'test-window')
+//   let test = new Test(description, steps)
+//   testWindow.onload = function() {
+//     test.setWindow(testWindow);
+//     test.execute();
+//   }
+//
+//   runTest(test)
+// }
+
+function expect(actual) {
+  return {
+    toEqual: function (expected) {
+      if (actual === expected) {
+        currentTest.result = {status: "pass"}
+      } else {
+        currentTest.result = {status: "fail", expected: expected, actual: actual}
+      }
+    }
+  }
+}
+
+function runTest(test) {
+  test.testSteps()
+  let result = currentTest.result
+  outputTestResultHtml(test, result)
+  outputTestResultConsole(test, result)
+}
+
+function outputTestResultConsole(test, result) {
+  console.log(result)
+}
+
+function outputTestResultHtml(test, result) {
+  formatTestResult(test, result)
+  let testsElement = document.getElementById('tests')
+  let html = "<div id='test-results'>" + resultHTML + "</div>"
+  testsElement.innerHTML = html;
+}
+
+function formatTestResult(test, result) {
+  let desc = `<div class='${result.status}'><span id="test-title">${test.description}</span><br>`
+  if (result.status === "pass") {
+    resultHTML += desc + `Pass</div><br>`
+  } else {
+    resultHTML += desc + `Fail<br>Expected ${result.expected} but instead got ${result.actual}</div><br>`
+  }
+}
+
+
+function checkPageContains(testWindow, expected) {
+  let actual = testWindow.document.body.textContent
+  // TODO: remove white space from actual before printing
+  // display test result
+  if (actual.includes(expected)) {
+    displayTests("Success");
+  } else {
+    displayTests(`Fail - you expected ${expected} but instead got ${actual}`);
+  }
+}
+
+// function navigateTo(path) {
+//   testWindow = window.open(path, 'test-window')
+//   testWindow.onload = function() {
+//     executeTest();
+//   }
+// }
+
+function populateForm(testWindow, elementId, value) {
+  let field = testWindow.document.getElementById(elementId);
+  field.value = value;
+}
+
+function closeWindow(testWindow) {
+  testWindow.close();
+}
+
+function clickButton(testWindow, elementId) {
+  let button = testWindow.document.getElementById(elementId)
+  button.click();
+}

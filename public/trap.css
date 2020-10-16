@@ -9,3 +9,8 @@
 #test-summary {
     font-size: 200%
 }
+
+#test-title {
+    font-size: 110%;
+    font-weight: bold;
+}
