@@ -34,113 +34,61 @@ So I can see all of the information in the note
 Scratch pad is a single page web app, implemented using javascript, HTML and CSS.  
 
 #### Deployment
+The app has been deployed using Surge (https://surge.sh) and is accessible at http://scratch-pad.surge.sh.
+
+#### Testing
+As part of this project, we built and used our own testing framework in javascript. 
+ 
+We have tried to follow the format of a combination of the Jasmine test functions for the test suite,   
+and Capybara for the web-based test functions.
+
+Example test function:
+```
+it ("#getTime / returns the time the note was created", function () {
+             let time = new Date(2020, 9, 31, 11, 00, 00, 00);
+             let note = new Note('This is a really cool note', time);
+             
+             expect(note.getTime()).toEqual(time);
+           })
+```
+
+## TODO: Add screenshot of test UI
+
+## Domain Modelling / Design
+
+### Scratch Pad
+#### Classes & Functions
+Note:
+* getMessage
+* getTime
+
+NoteManager:
+* addNote
+* getNotes
+
+### Mouse Trap (test framework)
+TODO
+
+## How to run tests
+TODO - 
 
 
-Class Diagrams
-Class diagrams were created to give a basic structure to class expectations during the project.
 
-Class Diagrams
+```
+install http-server  
+run http-server  
+open the http server localhost /test.html
+```
 
-Management classes were used to interact with the database by passing in space, booking or user objects.
+## Using the app
+* Navigate to http://scratch-pad.surge.sh  
+![index](https://i.imgur.com/TNcsqgH.png "Scratch Pad Home")
 
-Space Management class:
-Methods:
+* Enter your note and click the paws (sound on for effects)
+![Enter note](https://i.imgur.com/cjKbXyh.png "Enter note")
 
-show all spaces
+* View your list of notes
+![View note list](https://i.imgur.com/jDWt5vd.png "View note list")
 
-create space(space_object), with name, price and description
-
-shows user_spaces(user_id)
-
-shows specific spaces view_spaces(space_id)
-
-shows specific spaces according to availability
-
-shows specific spaces according to availability
-
-contains a method for converting string month to a date object
-
-User Management class:
-Methods:
-
-has a sign up functionality
-
-has a log in functionality
-
-note that logout functionality is implemented by destroying a session, no need for a method itself.
-Booking Management class:
-Methods:
-
-show customer bookings
-
-show host listings booked
-
-confirm booking
-
-request booking
-
-show host pending bookings
-
-CRC Diagrams
-CRC diagrams were initially created to mock the structure of databases and what datatypes may be suitable for use.
-
-CRC Diagram
-
-MVC Diagram
-A MVC diagram was created to visually represent the log between the client, controller, model and viewer.
-
-MVC Diagram
-
-Database
-Structure
-Test environment consisting of 2 Databases;
-
-
-To set-up databases:
-Test database
-Run:
-
-psql -c 'CREATE DATABASE makersbnb_test;'
-psql -d makersbnb_test -f db/migrations/test_database_setup.sql
-Live database
-Run:
-
-psql -c 'CREATE DATABASE makersbnb;'
-psql -d makersbnb -f db/migrations/database_setup.sql
-
-How to run tests
-Run bundle in the directory to install required gems:
-
-charlotte@Charlottes-MBP makersbnb % bundle
-Run rspec to test:
-
-charlotte@Charlottes-MBP makersbnb % rspec
-How to use
-Start local server
-run rackup
-charlotte@Charlottes-MBP makersbnb % rackup
-[2020-10-02 12:36:47] INFO  WEBrick 1.6.0
-[2020-10-02 12:36:47] INFO  ruby 2.7.0 (2019-12-25) [x86_64-darwin19]
-[2020-10-02 12:36:47] INFO  WEBrick::HTTPServer#start: pid=9084 port=9292
-Navigate to http://localhost:9292/ in your web browser
-Sign Up
-Required Information:
-Unique Email
-Name
-Password
-Log In
-Required Information:
-Email
-Password
-Add Spaces
-Requirements:
-User must be logged in.
-Required Information:
-Name
-Price
-Description
-View Spaces
-View spaces hosted by logged in user.
-Accept or decline booking requests on spaces.
-My Bookings
-View confirmed, pending or declined booking requests
+* View a full note
+![View full note](https://i.imgur.com/XoXWkW4.png "View full note")
