@@ -2,31 +2,57 @@
 <html>
 
 <head>
+<<<<<<< HEAD
 
+=======
+  
+  <meta charset="UTF-8">
+>>>>>>> cristollie
   <title>Scratch Pad</title>
   <link rel="stylesheet" href="public/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <h1> This is a test</h1>
   <div id="overlay">
     <div id="fullNote">Overlay Text</div>
+    <button type='button' id='close'>🧀</button>
   </div>
+  </div>
+
+
+
   <section class="note-creation">
-    <form id="new-note">
-      <input id="message" type="text" placeholder="What do you want to remember?"></input>
-      <input type="submit" id="submit-button" value="Post"></input>
-    </form>
+    <div class="form">
+      <form id="new-note">
+        <textarea id="message" type="text" columns="20"
+          placeholder="Don't stress meeoowwwwt!!!&#10;&#128008;"></textarea>
+
+        <div><input type="submit" id="submit-button" onclick="document.getElementById('cat').play();" value=🐾></input>
+          <audio id="cat" src="public/cat.mp3" preload="auto"></audio>
+        
+        </div>
+      </form>
+    </div>
   </section>
+
+  <br><br><br><br><br>
 
   <section class="note-display">
 
     <span id="note-list"></span>
+
   </section>
 
   <script src="src/Note.js"></script>
   <script src="src/NoteManager.js"></script>
+<<<<<<< HEAD
   <script src="src/interface.js"></script>
+=======
+  <script src="src/NoteManagerInterface.js"></script>
+
+>>>>>>> cristollie
 
 </body>
 
