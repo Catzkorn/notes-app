@@ -72,6 +72,9 @@ function hideOverlayOnCloseClick() {
   addClickListener("close", function() {
     off();
   });
+  addClickListener("overlay", function() {
+    off();
+  });
 }
 
 function on() {
