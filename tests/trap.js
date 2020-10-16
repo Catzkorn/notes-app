@@ -7,6 +7,16 @@ function it(description, steps) {
   let test = new Test(description, steps)
   runTest(test)
 }
+// function webIt(description, url, steps) {
+//   let testWindow = window.open(path, 'test-window')
+//   let test = new Test(description, steps)
+//   testWindow.onload = function() {
+//     test.setWindow(testWindow);
+//     test.execute();
+//   }
+//
+//   runTest(test)
+// }
 
 function expect(actual) {
   return {
@@ -21,8 +31,7 @@ function expect(actual) {
 }
 
 function runTest(test) {
-  let steps = test.testSteps
-  steps()
+  test.testSteps()
   let result = currentTest.result
   outputTestResultHtml(test, result)
   outputTestResultConsole(test, result)
@@ -40,9 +49,43 @@ function outputTestResultHtml(test, result) {
 }
 
 function formatTestResult(test, result) {
+  let desc = `<div class='${result.status}'><span id="test-title">${test.description}</span><br>`
   if (result.status === "pass") {
-    resultHTML += `<div class='${result.status}'>${test.description}<br>Pass</div><br>`
+    resultHTML += desc + `Pass</div><br>`
   } else {
-    resultHTML += `<div class='${result.status}'>${test.description}<br>Fail<br>Expected ${result.expected} but instead got ${result.actual}</div><br>`
+    resultHTML += desc + `Fail<br>Expected ${result.expected} but instead got ${result.actual}</div><br>`
   }
+}
+
+
+function checkPageContains(testWindow, expected) {
+  let actual = testWindow.document.body.textContent
+  // TODO: remove white space from actual before printing
+  // display test result
+  if (actual.includes(expected)) {
+    displayTests("Success");
+  } else {
+    displayTests(`Fail - you expected ${expected} but instead got ${actual}`);
+  }
+}
+
+// function navigateTo(path) {
+//   testWindow = window.open(path, 'test-window')
+//   testWindow.onload = function() {
+//     executeTest();
+//   }
+// }
+
+function populateForm(testWindow, elementId, value) {
+  let field = testWindow.document.getElementById(elementId);
+  field.value = value;
+}
+
+function closeWindow(testWindow) {
+  testWindow.close();
+}
+
+function clickButton(testWindow, elementId) {
+  let button = testWindow.document.getElementById(elementId)
+  button.click();
 }
