@@ -32,7 +32,7 @@ function displayNotes() {
 }
 
 function formatNote(note, index) {
-  return `<div id="notebox-${index}"><div id='note-${index}'>` + note.time + '<br>' + abbreviateMessage(note.message) + "</div>" + generateViewButton(index) + "</div>" + addGap();
+  return `<div id="notebox-${index}"><div id='note-${index}'>` + note.time + '<br>' + abbreviateMessage(note.message) + "</div>" + generateViewButton(index) + "</div>";
 }
 
 function abbreviateMessage(message) {
@@ -42,11 +42,6 @@ function abbreviateMessage(message) {
     return message;
   }
 }
-
-function addGap() {
-  return '<div id="gap"></div>';
-}
-
 
 function generateViewButton(index) {
   return `<button type='button' class="view-button" id='button-${index}'>View 🧶</button>`;

@@ -82,10 +82,6 @@ html{
     
 }
 
-#gap{
-height: 2.5cm;
-}
-
 .view-button{
     border: 2.5px solid cadetblue;
     border-radius: 100%;
@@ -103,8 +99,9 @@ position: relative;
     /*height: 50px;*/
     width: 30%;
     padding: 10px;
-    margin-right: 50%;
-    margin-left: 35%;
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
     }
 
 div[id*="note"]{
