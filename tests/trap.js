@@ -12,11 +12,10 @@ function webIt(description, url, steps) {
   let testWindow = window.open(url);
   let test = new Test(description, steps);
   testWindow.onload = function() {
-    test.setWindow(testWindow);
-    test.execute();
+    runTest(test);
   };
 
-  runTest(test);
+  // runTest(test);
 }
 
 function expect(actual) {
@@ -39,7 +38,7 @@ function expect(actual) {
 }
 
 function runTest(test) {
-  test.testSteps();
+  test.testSteps(testWindow);
   let result = currentTest.result;
   outputTestResultHtml(test, result);
   outputTestResultConsole(test, result);
