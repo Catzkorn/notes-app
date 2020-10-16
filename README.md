@@ -1,60 +1,36 @@
-# notes-app
-MakersBnB
-    ) )        /\
-   =====      /  \
-  _|___|_____/ __ \____________
- |::::::::::/ |  | \:::::::::::|
- |:::::::::/  ====  \::::::::::|
- |::::::::/__MAKERS__\:::::::::|
- |_________|  _BNB_ |__________|
-  | ______ | / || \ | _______ |
-  ||  |   || ====== ||   |   ||
-  ||--+---|| |    | ||---+---||
-  ||__|___|| |   o| ||___|___||
-  |========| |____| |=========|
- (^^-^^^^^-|________|-^^^--^^^)
- (,, , ,, ,/________\,,,, ,, ,)
-','',,,,' /__________\,,,',',;;
-Welcome to MakersBNB!
+# Scratch Pad =^._.^=
+A notes app for cool cats.
 
-Team Green
-Members
-Farhaan Ali
-Charlotte Brandhorst-Satzkorn
-Courtenay Donald
-Cristina Fujiname
-Connor Worthington
-Team Principles
-Don’t Ignore Testing
-Always ask for help if you are stuck
-The project is for everyone - Everyone understanding the project is important
-Overtime - No major implementation changes after 6pm unless otherwise agreed
-Spread knowledge
-Everyone has the chance to run a standup and retro
-Team Goal
-Less is more - Don’t over extend the project. Figure out what we want to do and do that very well.
-Product Design & Management
-Github Projects
-A github project board was used to manage the development of this product. This allowed the team to create and assign issues to pairing teams to develop and implement.
+### Team Members
 
-Github Project Board
+* Charlotte Brandhorst-Satzkorn
+* Cristina Fujiname
+* Louis Kirkham
+* Ollie Smith
+* Veronica Lee
 
-User Stories
-Separate sets of user stories were created for each 2 day sprint.
 
-Sprint 1
-Sprint 1 user stories
+## User Stories
 
-Sprint 2
-Sprint 2 user stories
+**US1 - Create note**  
+As a programmer  
+I want to create a new note  
+So I can record something I need to remember
 
-Technologies used
-Frontend
-The frontend was implemented using the Bootstrap Framework, HTML and CSS.
+**US2 - View abbreviated notes**  
+As a programmer  
+I want to see a list of my notes, where each note is abbreviated to the first 20 characters    
+So I can find the one I want
 
-Sinatra was used as part of our model controller view framework.
+**US3 - View abbreviated notes**  
+As a programmer  
+I want to see the full text of an individual note on its own page  
+So I can see all of the information in the note
 
-Frontend testing was achieved by using the Capybara/rspec testing framework.
+
+## Technologies used
+### Frontend
+The frontend was implemented using javascript, HTML and CSS. Scratch pad is a single page 
 
 Backend
 The backend was designed using Ruby and Postgres. Testing for backend methodologies was achieved using the rspec testing framework.
