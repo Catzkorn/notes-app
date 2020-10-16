@@ -33,6 +33,13 @@ function expect(actual) {
       } else {
         currentTest.result = { status: "fail", expected: expected, actual: actual };
       }
+    },
+    notToHaveContent(expected) {
+      if (!actual.includes(expected)) {
+        currentTest.result = { status: "pass" };
+      } else {
+        currentTest.result = { status: "fail", expected: expected, actual: actual };
+      }
     }
   };
 }
