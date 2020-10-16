@@ -5,8 +5,8 @@ var noteManager = new NoteManager();
 function addClickListener(elementId, clickFunction) {
   let button = document.getElementById(elementId);
   button.addEventListener("click", function(clickEvent) {
-    clickFunction(clickEvent);
-  });
+    clickFunction(clickEvent)
+  })
 }
 
 function addNoteOnClick() {
@@ -22,8 +22,8 @@ function addNoteOnClick() {
 function displayNotes() {
   let notesList = document.getElementById("note-list");
   let notes = noteManager.getNotes();
-  let html = "";
-  for (let i = (notes.length - 1); i >= 0; i--) {
+  let html = ""
+  for (let i = 0; i < notes.length; i++) {
     let note = notes[i];
     html += formatNote(note, i);
   }
@@ -32,51 +32,41 @@ function displayNotes() {
 }
 
 function formatNote(note, index) {
-  return `<div id="notebox-${index}"><div id='note-${index}'>` + note.time + '<br>' + abbreviateMessage(note.message) + "<br><br>" + generateViewButton(index) + "</div></div>" + addGap();
+  return `<div id='note-${index}'>` + abbreviateMessage(note.message) + " " + generateViewButton(index) + "<br>" + note.time + "</div><br>" 
 }
 
 function abbreviateMessage(message) {
   if (message.length > 20) {
-    return message.slice(0, 20) + "...";
+    return message.slice(0, 20) + "..."
   } else {
-    return message;
+    return message
   }
 }
 
-function addGap() {
-  return '<div id="gap"></div>';
-}
-
-
 function generateViewButton(index) {
-  // var snd = new Audio("file.wav");
-  // snd.play();
-  // snd.currentTime=0;
- 
-
-  return `<button type='button' class="view-button" id='button-${index}'>🧶</button>`;
+  return `<button type='button' id='button-${index}'>View</button>`
 }
 
 function viewFullNoteOnClick(notes) {
-  for (let i = 0; i < notes.length; i++) {
+  for (let i = 0; i < notes.length; i++ ) {
     addClickListener(`button-${i}`, function() {
       let fullNote = document.getElementById('fullNote');
       let note = notes[i];
-      fullNote.innerHTML = generateFullNote(note);
+      fullNote.innerHTML = generateFullNote(note)
       hideOverlayOnCloseClick();
       on();
-    });
+    }); 
   };
 };
 
 function generateFullNote(note) {
-  return `<div id='full-note-time'>${note.time}</div>` + '<br>' + note.message;
+  return note.time + '<br>' + note.message  + "<br> <button type='button' id='close'>Close</button>"
 }
 
 function hideOverlayOnCloseClick() {
   addClickListener("close", function() {
     off();
-  });
+  })
 }
 
 function on() {
