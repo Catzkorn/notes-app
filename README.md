@@ -1,5 +1,6 @@
 # Scratch Pad =^._.^=
 A notes app for cool cats.
+Check meeoowt here - http://scratch-pad.surge.sh
 
 ### Team Members
 
@@ -29,11 +30,11 @@ So I can see all of the information in the note
 
 
 ## Technologies used
-### Frontend
-The frontend was implemented using javascript, HTML and CSS. Scratch pad is a single page 
+#### Frontend
+Scratch pad is a single page web app, implemented using javascript, HTML and CSS.  
 
-Backend
-The backend was designed using Ruby and Postgres. Testing for backend methodologies was achieved using the rspec testing framework.
+#### Deployment
+
 
 Class Diagrams
 Class diagrams were created to give a basic structure to class expectations during the project.
@@ -94,49 +95,6 @@ Database
 Structure
 Test environment consisting of 2 Databases;
 
-makersbnb
-makersbnb_test (for testing purposes)
-Each database has 3 tables:
-
-Spaces
-id
-name
-description
-price
-userid
-Users
-id
-email
-name
-password
-Bookings
-bookingid
-spaceid
-guestid
-stay_date
-confirmation
-Security
-Userid
-User id's are UUIDv4's that were generated using the pgcrypto postgresql extension to prevent userid enumeration.
-
-Passwords
-Passwords are stored within the database as bcrypt hashes using the pgcrypto postgresql extension.
-
-This was implemented using this guide.
-
-SQL Injection Protection
-Variable interpolation was used to protect against SQL injection. This was achieved by using the pg gem.
-
-Data Integrity
-Foreign Key References
-The messages table contains a foreign key reference to the users table to ensure that only users that exist in the schema can be added as message authors. If a user were to delete their account, their message history would be removed as a consequence.
-
-Database Methods
-Joins
-To reduce duplication of data within the tables, join methods were used to gain access to information stored within other tables.
-
-"SELECT bookings.*, users.*, users.name AS user_name, spaces.* FROM bookings LEFT JOIN spaces ON bookings.spaceid = spaces.id LEFT JOIN users ON bookings.guestid = users.id WHERE spaces.userid = $1 AND bookings.confirmation IS NULL;"
-This example was used to access user information (name, email, hostid) without explicitly storing that within the booking table.
 
 To set-up databases:
 Test database
