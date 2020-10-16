@@ -1,5 +1,3 @@
-// let Test = require("./test").Test
-
 let currentTest = {};
 let resultHTML = "";
 
@@ -14,8 +12,6 @@ function webIt(description, url, steps) {
   testWindow.onload = function() {
     runWebTest(test, testWindow);
   };
-
-  // runTest(test);
 }
 
 function expect(actual) {
@@ -78,25 +74,6 @@ function formatTestResult(test, result) {
     resultHTML += desc + `Fail<br>Expected ${result.expected} but instead got ${result.actual}</div><br>`;
   }
 }
-
-
-function checkPageContains(testWindow, expected) {
-  let actual = testWindow.document.body.textContent;
-  // TODO: remove white space from actual before printing
-  // display test result
-  if (actual.includes(expected)) {
-    displayTests("Success");
-  } else {
-    displayTests(`Fail - you expected ${expected} but instead got ${actual}`);
-  }
-}
-
-// function navigateTo(path) {
-//   testWindow = window.open(path, 'test-window')
-//   testWindow.onload = function() {
-//     executeTest();
-//   }
-// }
 
 function populateForm(testWindow, elementId, value) {
   let field = testWindow.document.getElementById(elementId);
