@@ -32,7 +32,7 @@ function displayNotes() {
 }
 
 function formatNote(note, index) {
-  return `<div id="notebox-${index}"><div id='note-${index}'>` + note.time + '<br>' + abbreviateMessage(note.message) + "<br><br>" + generateViewButton(index) + "</div></div>" + addGap();
+  return `<div id="notebox-${index}"><div id='note-${index}'>` + note.time + '<br>' + abbreviateMessage(note.message) + "</div>" + generateViewButton(index) + "</div>";
 }
 
 function abbreviateMessage(message) {
@@ -43,18 +43,8 @@ function abbreviateMessage(message) {
   }
 }
 
-function addGap() {
-  return '<div id="gap"></div>';
-}
-
-
 function generateViewButton(index) {
-  // var snd = new Audio("file.wav");
-  // snd.play();
-  // snd.currentTime=0;
- 
-
-  return `<button type='button' class="view-button" id='button-${index}'>🧶</button>`;
+  return `<button type='button' class="view-button" id='button-${index}'>View 🧶</button>`;
 }
 
 function viewFullNoteOnClick(notes) {
@@ -75,6 +65,9 @@ function generateFullNote(note) {
 
 function hideOverlayOnCloseClick() {
   addClickListener("close", function() {
+    off();
+  });
+  addClickListener("overlay", function() {
     off();
   });
 }

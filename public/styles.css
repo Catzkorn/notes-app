@@ -82,10 +82,6 @@ html{
     
 }
 
-#gap{
-height: 2.5cm;
-}
-
 .view-button{
     border: 2.5px solid cadetblue;
     border-radius: 100%;
@@ -98,14 +94,20 @@ height: 2.5cm;
 
 div[id*="notebox"]{
 position: relative;
-    border: 5px solid cadetblue;
+    border: 3px solid cadetblue;
     background-color: white;
-    height: 50px;
+    /*height: 50px;*/
     width: 30%;
-    margin-right: 50%;
-    margin-left: 35%;
-    
+    padding: 10px;
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
     }
+
+div[id*="note"]{
+    padding: 5px;
+    font-size: 20px;
+}
 
 #message {
     
@@ -123,12 +125,9 @@ position: relative;
     font-family: 'Balsamiq Sans', cursive;
     border: 2.5px solid cadetblue;
     background-color: rgba(220, 220, 220, 0.700);
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 10px;
     border-radius: 100%;
     font-size: 20px;
-    height: 50px;
-    width : 70px;
 }
 
 
@@ -138,7 +137,11 @@ div.form {
 }
 
 .view-button {
-    color: darkslategray;
+    color: white;
+    background-color: cadetblue;
     font-family: 'Balsamiq Sans', cursive;
+    font-size: 20px;
+    border-radius: 30;
+    margin: 10px;
 }
 
