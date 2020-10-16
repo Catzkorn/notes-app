@@ -42,6 +42,7 @@ function runWebTest(test, testWindow) {
   let result = currentTest.result;
   outputTestResultHtml(test, result);
   outputTestResultConsole(test, result);
+  closeWindow(testWindow);
 }
 
 function runTest(test) {
