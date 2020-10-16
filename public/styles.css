@@ -138,7 +138,9 @@ div.form {
 }
 
 .view-button {
-    color: darkslategray;
+    color: white;
+    background-color: cadetblue;
     font-family: 'Balsamiq Sans', cursive;
+    font-size: 20px;
 }
 
