@@ -9,5 +9,5 @@ it('2 + 2 is 4', function() {
 
 it('failing test', function() {
   let result = 2 + 2
-  expect(result).toEqual(5)
+  expect(result).toEqual(4)
 })
